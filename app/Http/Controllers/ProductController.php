@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 
 class ProductController extends Controller
@@ -70,5 +71,16 @@ class ProductController extends Controller
     public function destroy(int $id) : int
     {
         return Product::destroy($id);
+    }
+
+    /**
+     * Search for a name
+     *
+     * @param  string  $name
+     * @return Collection
+     */
+    public function search(string $name) : Collection
+    {
+        return Product::where('name', 'like',  '%' .  $name . '%')->get();
     }
 }
