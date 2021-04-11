@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::post('/register', [AuthController::class, 'register']);
+Route::post('/login', [AuthController::class, 'login']);
 Route::get('/products/search/{name}', [ProductController::class, 'search']);
 Route::post('/logout', [AuthController::class, 'logout']);
 
